@@ -19,3 +19,8 @@ arr = (
 @pytest.mark.parametrize('zna, otvet', arr)
 def test_main(zna, otvet):
     assert get_degree(*zna) == otvet
+
+@pytest.mark.parametrize('zna, otvet', arr)
+def test_exception(zna,otvet):
+    with pytest.raises(TypeError):
+        test_main( ((2, 10), 1432.39),)
