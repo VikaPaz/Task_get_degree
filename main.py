@@ -16,5 +16,8 @@ def get_degree(rdu: float, time: float, accl: float, vel: float = 0) -> float:
     """
     half_degree_circle = 180
     arc = vel * time + (accl * time ** 2) / 2
-    alpha = arc / (pi * rdu / half_degree_circle)
+    try:
+        alpha = arc / (pi * rdu / half_degree_circle)
+    except ZeroDivisionError:
+        return "Делим на 0"
     return round(alpha, 2)
